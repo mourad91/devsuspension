@@ -1,0 +1,5 @@
+fr\gpe\ds\service\UserServiceTest.class
+fr\gpe\ds\web\rest\AccountResourceTest.class
+fr\gpe\ds\web\rest\UserResourceTest.class
+fr\gpe\ds\security\SecurityUtilsTest.class
+fr\gpe\ds\web\rest\TestUtil.class

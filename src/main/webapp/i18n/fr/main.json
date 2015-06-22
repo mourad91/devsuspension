@@ -1,0 +1,11 @@
+{
+    "main": {
+        "title": "Bienvenue dans Dev Suspension !",
+        "subtitle": "Application pour ajuster vos suspensions",
+        "logged": {
+            "message": "Vous êtes connecté en tant que \"{{username}}\"."
+        },
+        "like": "Si vous aimez Dev Suspension, likez notre page ",
+        "facebook": "Facebook"
+    }
+}

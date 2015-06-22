@@ -1,0 +1,11 @@
+{
+    "main": {
+        "title": "Welcome on Dev Suspension!",
+        "subtitle": "Application for adjusting your suspension",
+        "logged": {
+            "message": "You are logged in as user \"{{username}}\"."
+        },
+        "like": "If you like Dev Suspension, like our page on ",
+        "facebook": "Facebook"
+    }
+}

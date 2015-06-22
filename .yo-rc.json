@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "baseName": "Dev_Suspension",
+    "packageName": "fr.gpe.ds",
+    "packageFolder": "fr/gpe/ds",
+    "authenticationType": "oauth2",
+    "hibernateCache": "hazelcast",
+    "clusteredHttpSession": "no",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "useCompass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "enableTranslation": true,
+    "rememberMeKey": "af4a716029cdc978ea7a6183482a769715b7d755"
+  }
+}
