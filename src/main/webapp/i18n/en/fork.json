@@ -2,9 +2,9 @@
     "devSuspensionApp": {
         "fork" : {
             "home": {
-                "title": "Forks",
-                "createLabel": "Create a new Fork",
-                "createOrEditLabel": "Create or edit a Fork"
+                "title": "My Forks",
+                "createLabel": "Add your Fork",
+                "createOrEditLabel": "Add or edit a Fork"
             },
             "delete": {
                 "question": "Are you sure you want to delete Fork {{ id }}?"
@@ -14,10 +14,10 @@
             },
             "brand": "Brand",
             "model": "Model",
-            "hsc": "Hsc",
-            "lsc": "Lsc",
+            "hsc": "High Speed Compression",
+            "lsc": "Low Speed Compression",
             "rebound": "Rebound",
-            "bottomOut": "BottomOut",
+            "bottomOut": "Bottom Out",
             "type": "Type"
         }
     }

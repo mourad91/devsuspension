@@ -2,7 +2,7 @@
     "devSuspensionApp": {
         "shock" : {
             "home": {
-                "title": "Shocks",
+                "title": "My Shocks",
                 "createLabel": "Create a new Shock",
                 "createOrEditLabel": "Create or edit a Shock"
             },
@@ -14,10 +14,10 @@
             },
             "brand": "Brand",
             "model": "Model",
-            "hsc": "Hsc",
-            "lsc": "Lsc",
+            "hsc": "High Speed Compression",
+            "lsc": "Low Speed Compression",
             "rebound": "Rebound",
-            "bottomOut": "BottomOut",
+            "bottomOut": "Bottom Out",
             "type": "Type"
         }
     }
