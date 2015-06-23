@@ -6,6 +6,8 @@
             "home": "Home",
             "entities": {
                 "main": "Entities",
+                "fork": "Fork",
+                "shock": "Shock",
                 "additionalEntity": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

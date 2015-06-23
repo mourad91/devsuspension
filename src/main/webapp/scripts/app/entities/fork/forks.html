@@ -1,0 +1,188 @@
+<div>
+
+    <h2 translate="devSuspensionApp.fork.home.title">Forks</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#saveForkModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="devSuspensionApp.fork.home.createLabel">Create a new Fork</span>
+                </button>
+            </div>
+            <div class="col-md-8">
+                <form name="searchForm" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="query">
+                    </div>
+                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span>Search a Fork</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="saveForkModal" tabindex="-1" role="dialog" aria-labelledby="myForkLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myForkLabel" translate="devSuspensionApp.fork.home.createOrEditLabel">Create or edit a Fork</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="fork.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.fork.brand">Brand</label>
+                            <input type="text" class="form-control" name="brand"
+                                   ng-model="fork.brand" required>
+
+                            <div ng-show="editForm.brand.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.brand.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.fork.model">Model</label>
+                            <input type="text" class="form-control" name="model"
+                                   ng-model="fork.model" required>
+
+                            <div ng-show="editForm.model.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.model.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.fork.hsc">Hsc</label>
+                            <input type="number" class="form-control" name="hsc"
+                                   ng-model="fork.hsc">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.fork.lsc">Lsc</label>
+                            <input type="number" class="form-control" name="lsc"
+                                   ng-model="fork.lsc">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.fork.rebound">Rebound</label>
+                            <input type="number" class="form-control" name="rebound"
+                                   ng-model="fork.rebound">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.fork.bottomOut">BottomOut</label>
+                            <input type="number" class="form-control" name="bottomOut"
+                                   ng-model="fork.bottomOut">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.fork.type">Type</label>
+                            <input type="text" class="form-control" name="type"
+                                   ng-model="fork.type" required>
+
+                            <div ng-show="editForm.type.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.type.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteForkConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(fork.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="devSuspensionApp.fork.delete.question" translate-values="{id: '{{fork.id}}'}">Are you sure you want to delete this Fork?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="devSuspensionApp.fork.brand">Brand</th>
+                    <th translate="devSuspensionApp.fork.model">Model</th>
+                    <th translate="devSuspensionApp.fork.hsc">Hsc</th>
+                    <th translate="devSuspensionApp.fork.lsc">Lsc</th>
+                    <th translate="devSuspensionApp.fork.rebound">Rebound</th>
+                    <th translate="devSuspensionApp.fork.bottomOut">BottomOut</th>
+                    <th translate="devSuspensionApp.fork.type">Type</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="fork in forks">
+                    <td><a ui-sref="forkDetail({id:fork.id})">{{fork.id}}</a></td>
+                    <td>{{fork.brand}}</td>
+                    <td>{{fork.model}}</td>
+                    <td>{{fork.hsc}}</td>
+                    <td>{{fork.lsc}}</td>
+                    <td>{{fork.rebound}}</td>
+                    <td>{{fork.bottomOut}}</td>
+                    <td>{{fork.type}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="forkDetail({id:fork.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="showUpdate(fork.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(fork.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

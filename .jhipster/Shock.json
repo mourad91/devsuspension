@@ -1,0 +1,91 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "brand",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Brand",
+            "fieldNameUnderscored": "brand",
+            "fieldInJavaBeanMethod": "Brand",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "model",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Model",
+            "fieldNameUnderscored": "model",
+            "fieldInJavaBeanMethod": "Model",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "hsc",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Hsc",
+            "fieldNameUnderscored": "hsc",
+            "fieldInJavaBeanMethod": "Hsc",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "lsc",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Lsc",
+            "fieldNameUnderscored": "lsc",
+            "fieldInJavaBeanMethod": "Lsc",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "rebound",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Rebound",
+            "fieldNameUnderscored": "rebound",
+            "fieldInJavaBeanMethod": "Rebound",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "bottomOut",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "BottomOut",
+            "fieldNameUnderscored": "bottom_out",
+            "fieldInJavaBeanMethod": "BottomOut",
+            "fieldValidate": false
+        },
+        {
+            "fieldId": 7,
+            "fieldName": "type",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Type",
+            "fieldNameUnderscored": "type",
+            "fieldInJavaBeanMethod": "Type",
+            "fieldValidate": true,
+            "fieldValidateRules": [
+                "required",
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^[a-zA-Z0-9]*$"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOwnerOneToOne": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "fieldsContainDate": false,
+    "changelogDate": "20150623103722",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "validation": true
+}

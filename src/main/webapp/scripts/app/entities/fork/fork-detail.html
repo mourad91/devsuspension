@@ -1,0 +1,78 @@
+
+<div>
+    <h2><span translate="devSuspensionApp.fork.detail.title">Fork</span> {{fork.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.fork.brand">Brand</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{fork.brand}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.fork.model">Model</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{fork.model}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.fork.hsc">Hsc</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{fork.hsc}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.fork.lsc">Lsc</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{fork.lsc}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.fork.rebound">Rebound</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{fork.rebound}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.fork.bottomOut">BottomOut</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{fork.bottomOut}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.fork.type">Type</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{fork.type}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="fork"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

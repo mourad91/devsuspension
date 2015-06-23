@@ -1,0 +1,78 @@
+
+<div>
+    <h2><span translate="devSuspensionApp.shock.detail.title">Shock</span> {{shock.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.shock.brand">Brand</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{shock.brand}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.shock.model">Model</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{shock.model}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.shock.hsc">Hsc</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{shock.hsc}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.shock.lsc">Lsc</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{shock.lsc}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.shock.rebound">Rebound</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{shock.rebound}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.shock.bottomOut">BottomOut</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{shock.bottomOut}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="devSuspensionApp.shock.type">Type</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{shock.type}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="shock"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

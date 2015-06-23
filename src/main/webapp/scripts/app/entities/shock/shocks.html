@@ -1,0 +1,192 @@
+<div>
+
+    <h2 translate="devSuspensionApp.shock.home.title">Shocks</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#saveShockModal" ng-click="clear()">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="devSuspensionApp.shock.home.createLabel">Create a new Shock</span>
+                </button>
+            </div>
+            <div class="col-md-8">
+                <form name="searchForm" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="query">
+                    </div>
+                    <button class="btn btn-info" ng-click="search()"><span class="glyphicon glyphicon-search"></span> <span>Search a Shock</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="saveShockModal" tabindex="-1" role="dialog" aria-labelledby="myShockLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myShockLabel" translate="devSuspensionApp.shock.home.createOrEditLabel">Create or edit a Shock</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="shock.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.shock.brand">Brand</label>
+                            <input type="text" class="form-control" name="brand"
+                                   ng-model="shock.brand" required>
+
+                            <div ng-show="editForm.brand.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.brand.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.shock.model">Model</label>
+                            <input type="text" class="form-control" name="model"
+                                   ng-model="shock.model" required>
+
+                            <div ng-show="editForm.model.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.model.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.shock.hsc">Hsc</label>
+                            <input type="number" class="form-control" name="hsc"
+                                   ng-model="shock.hsc">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.shock.lsc">Lsc</label>
+                            <input type="number" class="form-control" name="lsc"
+                                   ng-model="shock.lsc">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.shock.rebound">Rebound</label>
+                            <input type="number" class="form-control" name="rebound"
+                                   ng-model="shock.rebound">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.shock.bottomOut">BottomOut</label>
+                            <input type="number" class="form-control" name="bottomOut"
+                                   ng-model="shock.bottomOut">
+
+                        </div>
+                        <div class="form-group">
+                            <label translate="devSuspensionApp.shock.type">Type</label>
+                            <input type="text" class="form-control" name="type"
+                                   ng-model="shock.type" required ng-pattern="/^[a-zA-Z0-9]*$/">
+
+                            <div ng-show="editForm.type.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.type.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.type.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[a-zA-Z0-9]*$">
+                                    This field should follow pattern "^[a-zA-Z0-9]*$".
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteShockConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="deleteForm" ng-submit="confirmDelete(shock.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="devSuspensionApp.shock.delete.question" translate-values="{id: '{{shock.id}}'}">Are you sure you want to delete this Shock?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="deleteForm.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="devSuspensionApp.shock.brand">Brand</th>
+                    <th translate="devSuspensionApp.shock.model">Model</th>
+                    <th translate="devSuspensionApp.shock.hsc">Hsc</th>
+                    <th translate="devSuspensionApp.shock.lsc">Lsc</th>
+                    <th translate="devSuspensionApp.shock.rebound">Rebound</th>
+                    <th translate="devSuspensionApp.shock.bottomOut">BottomOut</th>
+                    <th translate="devSuspensionApp.shock.type">Type</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="shock in shocks">
+                    <td><a ui-sref="shockDetail({id:shock.id})">{{shock.id}}</a></td>
+                    <td>{{shock.brand}}</td>
+                    <td>{{shock.model}}</td>
+                    <td>{{shock.hsc}}</td>
+                    <td>{{shock.lsc}}</td>
+                    <td>{{shock.rebound}}</td>
+                    <td>{{shock.bottomOut}}</td>
+                    <td>{{shock.type}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="shockDetail({id:shock.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="showUpdate(shock.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(shock.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
